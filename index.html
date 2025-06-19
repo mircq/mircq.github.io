@@ -6,6 +6,7 @@
     <title>Mirco Quintavalla - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wordcloud2.js/1.1.0/wordcloud2.min.js"></script>
+    <!--tag cloud-->
     <style>
         html {
           scroll-behavior: smooth;
@@ -105,6 +106,111 @@
                     </svg>
                     Pisa, Italy
                 </p>
+                <div class="flex items-center text-sm text-gray-600 mt-1">
+                    <svg class="w-4 h-4 mr-1 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                         viewBox="0 0 24 24">
+                        <path d="M12 2a7 7 0 017 7c0 2.93-1.87 5.43-4.5 6.32V22l-2.5-1.5L9 22v-6.68A7 7 0 015 9a7 7 0 017-7z"/>
+                    </svg>
+                    Final Grade: 110/110 cum laude
+                </div>
+                <!-- Thesis Link -->
+                <div class="mt-2">
+                    <a href="https://etd.adm.unipi.it/t/etd-10262021-144640/" target="_blank" rel="noopener noreferrer"
+                       class="inline-flex items-center px-3 py-1 text-sm font-medium text-green-700 bg-green-100 rounded-full hover:bg-green-200 transition">
+                        <svg class="w-4 h-4 mr-1 text-green-600" fill="none" stroke="currentColor" stroke-width="2"
+                             viewBox="0 0 24 24"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M12 4v16m8-8H4"/>
+                        </svg>
+                        View Thesis
+                    </a>
+                </div>
+                <!-- Toggle button -->
+                <button id="toggleGradesBtn"
+                        class="mt-3 inline-flex items-center px-4 py-2 text-sm font-medium text-green-700 bg-green-100 rounded hover:bg-blue-200 transition focus:outline-none"
+                        aria-expanded="false"
+                        aria-controls="gradesTable">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                    Show Grades
+                </button>
+
+                <!-- Grades Table (hidden by default) -->
+                <div id="gradesTable" class="mt-4 overflow-x-auto max-h-64 transition-all duration-300 ease-in-out"
+                     style="max-height: 0; overflow: hidden;">
+                    <table class="min-w-full bg-white border border-gray-300 rounded shadow-sm">
+                        <thead>
+                        <tr class="bg-gray-100">
+                            <th class="text-left px-4 py-2 border-b">Course</th>
+                            <th class="text-left px-4 py-2 border-b">Grade</th>
+                            <th class="text-left px-4 py-2 border-b">Credits</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="px-4 py-2 border-b">Data Mining and Machine Learning</td>
+                            <td class="px-4 py-2 border-b">30/30</td>
+                            <td class="px-4 py-2 border-b">12</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-2 border-b">Large-Scale and Multi-Structured Databases</td>
+                            <td class="px-4 py-2 border-b">30/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border-b">Statistics</td>
+                            <td class="px-4 py-2 border-b">30/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-2 border-b">Optimization Methods and Game Theory</td>
+                            <td class="px-4 py-2 border-b">30/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border-b">Foundations of Cybersecurity</td>
+                            <td class="px-4 py-2 border-b">26/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+
+                         <tr class="bg-gray-50">
+                            <td class="px-4 py-2 border-b">Cloud Computing</td>
+                            <td class="px-4 py-2 border-b">29/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border-b">Business and Project Management</td>
+                            <td class="px-4 py-2 border-b">29/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border-b">Computational Intelligence and Deep Learning</td>
+                            <td class="px-4 py-2 border-b">28/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border-b">Internet of Things </td>
+                            <td class="px-4 py-2 border-b">27/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border-b">Internet of Things </td>
+                            <td class="px-4 py-2 border-b">27/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+
+Multimedia Information Retrieval and Computer
+
+Vision
+
+30L
+Process Mining and Intelligence 30
+Symbolic and Evolutionary Artificial Intelligence 30
+                        </tbody>
+                    </table>
+                </div>
                 <p class="mt-2 text-gray-700">Text.</p>
             </div>
 
@@ -129,14 +235,20 @@
                     </svg>
                     Pisa, Italy
                 </p>
+                <div class="flex items-center text-sm text-gray-600 mt-1">
+                    <svg class="w-4 h-4 mr-1 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                         viewBox="0 0 24 24">
+                        <path d="M12 2a7 7 0 017 7c0 2.93-1.87 5.43-4.5 6.32V22l-2.5-1.5L9 22v-6.68A7 7 0 015 9a7 7 0 017-7z"/>
+                    </svg>
+                    Final Grade: 106/110
+                </div>
                 <p class="mt-2 text-gray-700">Text.</p>
             </div>
 
             <!-- Degree 2 (optional) -->
             <div class="relative pl-8 border-l-4 border-green-500">
                 <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-green-500"></div>
-                <h3 class="text-xl font-semibold">High School Diploma</h3>
-                <span class="text-sm text-gray-500">Science High School — September 2010 to June 2015</span>
+                <h3 class="text-xl font-semibold">High School Diploma @ Scientific High School T. Parentucelli</h3>
                 <p class="flex items-center text-sm text-gray-500 mt-1">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 text-green-600" fill="none"
                          viewBox="0 0 24 24" stroke="currentColor">
@@ -155,6 +267,13 @@
                     </svg>
                     Sarzana, Italy
                 </p>
+                <div class="flex items-center text-sm text-gray-600 mt-1">
+                    <svg class="w-4 h-4 mr-1 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                         viewBox="0 0 24 24">
+                        <path d="M12 2a7 7 0 017 7c0 2.93-1.87 5.43-4.5 6.32V22l-2.5-1.5L9 22v-6.68A7 7 0 015 9a7 7 0 017-7z"/>
+                    </svg>
+                    Final Grade: 100/100
+                </div>
                 <p class="mt-2 text-gray-700">Text.</p>
             </div>
         </div>
@@ -187,20 +306,61 @@
                     </svg>
                     Milan, Italy
                 </p>
-                <div class="mt-2 text-gray-700">
-                    Key Contributions:
-                    <ul class="list-disc list-inside ml-4 space-y-1">
-                        <li>Designed and built a platform for synthetic medical data generation and validation,
-                            empowering healthcare organizations with privacy-preserving and high-quality data for
-                            research and AI model training
+                <div class="mt-4">
+                    <p class="text-sm font-semibold text-gray-600 mb-2">Key Contributions:</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+    <span class="text-blue-600 mt-1 mr-2">
+      <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11H9v4h2V7zm0 6H9v2h2v-2z"
+              clip-rule="evenodd"/>
+      </svg>
+    </span>
+                            <p class="text-gray-700">
+                                Designed and built a platform for synthetic medical data generation and validation,
+                                empowering healthcare organizations with privacy-preserving and high-quality data.
+                            </p>
                         </li>
-                        <li>Built and launched a validation framework for synthetic data, providing automated
-                            metric-based assessments to improve data reliability and model performance.
+                        <li class="flex items-start">
+    <span class="text-blue-600 mt-1 mr-2">
+      <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11H9v4h2V7zm0 6H9v2h2v-2z"
+              clip-rule="evenodd"/>
+      </svg>
+    </span>
+                            <p class="text-gray-700">
+                                Built and launched a validation framework for synthetic data, providing automated
+                                metric-based assessments to improve data reliability and model performance.
+                            </p>
                         </li>
                     </ul>
 
-                    Technical Skills & Technologies: Python, C#, SQL, Qdrant, GCP, Azure, Keycloak,
-                    Ollama, Langchain, PyTorch, Docker, RabbitMQ
+                    <!-- Technology Tags -->
+                    <div class="mt-4">
+                        <p class="flex items-center text-sm font-semibold text-gray-600 mb-2">
+                            <svg class="w-4 h-4 mr-1 text-blue-500" fill="none" stroke="currentColor" stroke-width="2"
+                                 viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M13 16h-1v-4h-1m2 0h.01M4 6h16M4 6v12a2 2 0 002 2h12a2 2 0 002-2V6M4 6l8 6 8-6"/>
+                            </svg>
+                            Technologies Used:
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Python</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">C#</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">SQL</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Qdrant</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">GCP</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Azure</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Keycloak</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Ollama</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Langchain</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">PyTorch</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">Docker</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded-full">RabbitMQ</span>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <!-- Job 2 -->
@@ -225,19 +385,82 @@
                     </svg>
                     Pisa, Italy
                 </p>
-                <p class="mt-2 text-gray-700">Key Contributions:
-                    Developed and integrated Identity and Access Management (IAM), allowing the
-                    application to support multiple tenants and scale to new customers.
-                    Developed and integrated a content extraction module into the product
-                    pipeline, leveraging libraries and AI models to process textual, audio, and video
-                    files, expanding tagging capabilities across diverse formats.
-                    Developed a scalable RAG-based retrieval system, enabling in-depth
-                    document analysis and allowing users to extract key insights.
-                    Technical Skills & Technologies: Python, C#, Angular, Typescript, Redis, SQL,
-                    MongoDB, Qdrant, Neo4j, AWS, Azure, Runpod, Keycloak, Celery, LLamaindex,
-                    Whisper, FastAPI, Pydantic, Docker</p>
+                <div class="mt-4">
+                    <p class="text-sm font-semibold text-gray-600 mb-2">Key Contributions:</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+    <span class="text-blue-600 mt-1 mr-2">
+      <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11H9v4h2V7zm0 6H9v2h2v-2z"
+              clip-rule="evenodd"/>
+      </svg>
+    </span>
+                            <p class="text-gray-700">
+                                Developed and integrated Identity and Access Management (IAM), allowing the
+                                application to support multiple tenants and scale to new customers.
+                            </p>
+                        </li>
+                        <li class="flex items-start">
+    <span class="text-blue-600 mt-1 mr-2">
+      <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11H9v4h2V7zm0 6H9v2h2v-2z"
+              clip-rule="evenodd"/>
+      </svg>
+    </span>
+                            <p class="text-gray-700">
+                                Developed and integrated a content extraction module into the product
+                                pipeline, leveraging libraries and AI models to process textual, audio, and video
+                                files, expanding tagging capabilities across diverse formats.
+                            </p>
+                        </li>
+                        <li class="flex items-start">
+    <span class="text-blue-600 mt-1 mr-2">
+      <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11H9v4h2V7zm0 6H9v2h2v-2z"
+              clip-rule="evenodd"/>
+      </svg>
+    </span>
+                            <p class="text-gray-700">
+                                Developed a scalable RAG-based retrieval system, enabling in-depth
+                                document analysis and allowing users to extract key insights.
+                            </p>
+                        </li>
+                    </ul>
+                    <div class="mt-4">
+                        <p class="flex items-center text-sm font-semibold text-gray-600 mb-2">
+                            <svg class="w-4 h-4 mr-1 text-blue-500" fill="none" stroke="currentColor" stroke-width="2"
+                                 viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                      d="M13 16h-1v-4h-1m2 0h.01M4 6h16M4 6v12a2 2 0 002 2h12a2 2 0 002-2V6M4 6l8 6 8-6"/>
+                            </svg>
+                            Technologies Used:
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Python</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">C#</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Angular</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Typescript</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Redis</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">SQL</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">MongoDB</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Qdrant</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Neo4j</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">AWS</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Azure</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Runpod</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Keycloak</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Celery</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">LLamaindex</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Whisper</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">FastAPI</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Pydantic</span>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full">Docker</span>
+                        </div>
+                    </div>
+
+
+                </div>
             </div>
-        </div>
     </section>
 
     <!-- Badges & Certifications -->
@@ -249,7 +472,10 @@
             <!-- Item 1 -->
             <li class="relative">
                 <div class="absolute -left-3 top-1 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs shadow">
-                    🎓
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+                        <path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4 .1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8 .1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3 .1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/>
+                    </svg>
                 </div>
                 <div class="bg-white shadow-md rounded-r-lg pl-4 pr-6 py-4 border-l-4 border-blue-500">
                     <h3 class="text-lg font-semibold">Python Associate Programmer</h3>
@@ -356,3 +582,35 @@
 
 </body>
 </html>
+
+<script>
+    const toggleBtn = document.getElementById('toggleGradesBtn');
+    const gradesDiv = document.getElementById('gradesTable');
+    const svgIcon = toggleBtn.querySelector('svg');
+
+    toggleBtn.addEventListener('click', () => {
+      const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+
+      if (isExpanded) {
+        // Hide the table
+        gradesDiv.style.maxHeight = '0';
+        gradesDiv.style.overflow = 'hidden';
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        toggleBtn.innerHTML = `
+          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg> Show Grades
+        `;
+      } else {
+        // Show the table with smooth height expansion
+        gradesDiv.style.maxHeight = gradesDiv.scrollHeight + 'px';
+        gradesDiv.style.overflow = 'auto';
+        toggleBtn.setAttribute('aria-expanded', 'true');
+        toggleBtn.innerHTML = `
+          <svg class="w-4 h-4 mr-2 transform rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg> Hide Grades
+        `;
+      }
+    });
+</script>
