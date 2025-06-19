@@ -1,128 +1,358 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mirco Quintavalla - Portfolio</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Mirco Quintavalla - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wordcloud2.js/1.1.0/wordcloud2.min.js"></script>
+    <style>
+        html {
+          scroll-behavior: smooth;
+        }
+    </style>
 </head>
 <body class="bg-gray-100 text-gray-800 font-sans flex flex-col md:flex-row min-h-screen">
 
-  <!-- Sidebar -->
-  <aside class="bg-gray-900 text-white w-full md:w-64 p-6 sticky top-0 md:h-screen z-10">
-    <img src="your-image.jpg" alt="Mirco Quintavalla" class="w-24 h-24 mx-auto rounded-full mb-4 border-4 border-white shadow-lg" />
+<!-- Sidebar -->
+<aside class="bg-gray-900 text-white w-full md:w-64 p-6 sticky top-0 md:h-screen z-10">
+    <img src="assets/foto_MircoQuintavalla.jpg" alt="Mirco Quintavalla"
+         class="w-24 h-24 mx-auto rounded-full mb-4 border-4 border-white shadow-lg"/>
     <h1 class="text-2xl font-bold mb-8">Mirco Quintavalla</h1>
     <nav class="space-y-4">
-      <a href="#home" class="block text-gray-300 hover:text-white">Home</a>
-      <a href="#about" class="block text-gray-300 hover:text-white">About</a>
-      <a href="#education" class="block text-gray-300 hover:text-white">Education</a>
-      <a href="#career" class="block text-gray-300 hover:text-white">Career</a>
-      <a href="#projects" class="block text-gray-300 hover:text-white">Projects</a>
-      <a href="#contact" class="block text-gray-300 hover:text-white">Contact</a>
+        <a href="#home" class="block text-gray-300 hover:text-white">Home</a>
+        <a href="#about" class="block text-gray-300 hover:text-white">About</a>
+        <a href="#education" class="block text-gray-300 hover:text-white">Education</a>
+        <a href="#career" class="block text-gray-300 hover:text-white">Career</a>
+        <a href="#projects" class="block text-gray-300 hover:text-white">Projects</a>
+        <a href="#contacts" class="block text-gray-300 hover:text-white">Contact</a>
     </nav>
-  </aside>
+</aside>
 
-  <!-- Main Content -->
-  <main class="flex-1 overflow-y-auto p-6">
+<!-- Main Content -->
+<main class="flex-1 overflow-y-auto p-6">
 
     <!-- Home -->
     <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-4">
-      <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Hi, I'm Mirco Quintavalla</h2>
-      <p class="text-lg md:text-xl text-gray-600 max-w-xl mb-6">Text.</p>
-      <a href="#projects" class="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-full shadow hover:bg-blue-700 transition duration-300">View My Work</a>
+        <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Hi, I'm Mirco Quintavalla</h2>
+        <p class="text-lg md:text-xl text-gray-600 max-w-xl mb-6">Text.</p>
+        <a href="#projects"
+           class="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-full shadow hover:bg-blue-700 transition duration-300">View
+            My Work</a>
     </section>
+
+    <section class="py-12 max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold mb-4 border-b-2 border-gray-300 pb-2">Skills Word Cloud</h2>
+        <canvas id="skillsCloud" class="w-full h-96 rounded-lg shadow bg-gray-100"></canvas>
+    </section>
+
+    <script>
+        WordCloud(document.getElementById('skillsCloud'), {
+          list: [
+            ['Python', 50],
+            ['C#', 25],
+            ['SQL', 30],
+            ['Langchain', 20],
+            ['PyTorch', 35],
+            ['Docker', 20],
+            ['GCP', 28],
+            ['Azure', 26],
+            ['RabbitMQ', 18],
+            ['Qdrant', 22],
+            ['Keycloak', 15],
+            ['Ollama', 19],
+          ],
+          gridSize: 8,
+          weightFactor: 3,
+          fontFamily: 'sans-serif',
+          color: 'random-dark',
+          rotateRatio: 0.3,
+          backgroundColor: '#f3f4f6'
+        });
+    </script>
 
     <!-- About -->
     <section id="about" class="py-12 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold mb-4 border-b-2 border-gray-300 pb-2">About Me</h2>
-      <p class="text-gray-700 leading-relaxed">
-        Text.
-      </p>
+        <h2 class="text-2xl font-bold mb-4 border-b-2 border-gray-300 pb-2">About Me</h2>
+        <p class="text-gray-700 leading-relaxed">
+            Text.
+        </p>
     </section>
 
-      <!-- Education -->
-<section id="education" class="py-12 max-w-4xl mx-auto">
-  <h2 class="text-2xl font-bold mb-4 border-b-2 border-gray-300 pb-2">Education</h2>
-  <div class="space-y-8 mt-6">
-    <div class="relative pl-8 border-l-4 border-green-500">
-      <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-green-500"></div>
-      <h3 class="text-xl font-semibold">Master Degree in Artificial Intelligence and Data Engineering</h3>
-      <span class="text-sm text-gray-500">University of Pisa — September 2019 to November 2021</span>
-      <p class="mt-2 text-gray-700">Text.</p>
-    </div>
+    <!-- Education -->
+    <section id="education" class="py-12 max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold mb-4 border-b-2 border-gray-300 pb-2">Education</h2>
+        <div class="space-y-8 mt-6">
+            <div class="relative pl-8 border-l-4 border-green-500">
+                <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-green-500"></div>
+                <h3 class="text-xl font-semibold">Master Degree in Artificial Intelligence and Data Engineering @
+                    University of Pisa</h3>
+                <p class="flex items-center text-sm text-gray-500 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 text-green-600" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M8 7V3m8 4V3M4 11h16M5 5h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z"/>
+                    </svg>
+                    September 2019 – November 2021
+                </p>
+                <p class="flex items-center text-sm text-gray-500 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 text-green-600" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M12 11c1.656 0 3-1.344 3-3S13.656 5 12 5s-3 1.344-3 3 1.344 3 3 3z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M12 22s8-4.5 8-11a8 8 0 10-16 0c0 6.5 8 11 8 11z"/>
+                    </svg>
+                    Pisa, Italy
+                </p>
+                <p class="mt-2 text-gray-700">Text.</p>
+            </div>
 
-    <div class="relative pl-8 border-l-4 border-green-500">
-      <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-green-500"></div>
-      <h3 class="text-xl font-semibold">Bachelor Degree in Computer Engineering</h3>
-      <span class="text-sm text-gray-500">University of Pisa — September 2015 to May 2019</span>
-      <p class="mt-2 text-gray-700">Text.</p>
-    </div>
+            <div class="relative pl-8 border-l-4 border-green-500">
+                <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-green-500"></div>
+                <h3 class="text-xl font-semibold">Bachelor Degree in Computer Engineering @ University of Pisa</h3>
+                <p class="flex items-center text-sm text-gray-500 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 text-green-600" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M8 7V3m8 4V3M4 11h16M5 5h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z"/>
+                    </svg>
+                    September 2015 – May 2019
+                </p>
+                <p class="flex items-center text-sm text-gray-500 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 text-green-600" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M12 11c1.656 0 3-1.344 3-3S13.656 5 12 5s-3 1.344-3 3 1.344 3 3 3z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M12 22s8-4.5 8-11a8 8 0 10-16 0c0 6.5 8 11 8 11z"/>
+                    </svg>
+                    Pisa, Italy
+                </p>
+                <p class="mt-2 text-gray-700">Text.</p>
+            </div>
 
-    <!-- Degree 2 (optional) -->
-    <div class="relative pl-8 border-l-4 border-green-500">
-      <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-green-500"></div>
-      <h3 class="text-xl font-semibold">High School Diploma</h3>
-      <span class="text-sm text-gray-500">Science High School — September 2010 to June 2015</span>
-      <p class="mt-2 text-gray-700">Text.</p>
-    </div>
-  </div>
-</section>
+            <!-- Degree 2 (optional) -->
+            <div class="relative pl-8 border-l-4 border-green-500">
+                <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-green-500"></div>
+                <h3 class="text-xl font-semibold">High School Diploma</h3>
+                <span class="text-sm text-gray-500">Science High School — September 2010 to June 2015</span>
+                <p class="flex items-center text-sm text-gray-500 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 text-green-600" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M8 7V3m8 4V3M4 11h16M5 5h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z"/>
+                    </svg>
+                    September 2010 – June 2015
+                </p>
+                <p class="flex items-center text-sm text-gray-500 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 text-green-600" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M12 11c1.656 0 3-1.344 3-3S13.656 5 12 5s-3 1.344-3 3 1.344 3 3 3z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M12 22s8-4.5 8-11a8 8 0 10-16 0c0 6.5 8 11 8 11z"/>
+                    </svg>
+                    Sarzana, Italy
+                </p>
+                <p class="mt-2 text-gray-700">Text.</p>
+            </div>
+        </div>
+    </section>
 
 
     <!-- Career -->
     <section id="career" class="py-12 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold mb-4 border-b-2 border-gray-300 pb-2">Career</h2>
-      <div class="space-y-8 mt-6">
-        <!-- Job 1 -->
-        <div class="relative pl-8 border-l-4 border-blue-600">
-          <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-blue-600"></div>
-          <h3 class="text-xl font-semibold">AI Engineer - Humanitas</h3>
-          <span class="text-sm text-gray-500">October 2024 – Present</span>
-          <p class="mt-2 text-gray-700">Text.</p>
+        <h2 class="text-2xl font-bold mb-4 border-b-2 border-gray-300 pb-2">Career</h2>
+        <div class="space-y-8 mt-6">
+            <!-- Job 1 -->
+            <div class="relative pl-8 border-l-4 border-blue-600">
+                <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-blue-600"></div>
+                <h3 class="text-xl font-semibold">AI Engineer @ Humanitas</h3>
+                <p class="flex items-center text-sm text-gray-500 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 text-blue-600" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M8 7V3m8 4V3M4 11h16M5 5h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z"/>
+                    </svg>
+                    October 2024 – Present
+                </p>
+                <p class="flex items-center text-sm text-gray-500 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 text-blue-600" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M12 11c1.656 0 3-1.344 3-3S13.656 5 12 5s-3 1.344-3 3 1.344 3 3 3z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M12 22s8-4.5 8-11a8 8 0 10-16 0c0 6.5 8 11 8 11z"/>
+                    </svg>
+                    Milan, Italy
+                </p>
+                <div class="mt-2 text-gray-700">
+                    Key Contributions:
+                    <ul class="list-disc list-inside ml-4 space-y-1">
+                        <li>Designed and built a platform for synthetic medical data generation and validation,
+                            empowering healthcare organizations with privacy-preserving and high-quality data for
+                            research and AI model training
+                        </li>
+                        <li>Built and launched a validation framework for synthetic data, providing automated
+                            metric-based assessments to improve data reliability and model performance.
+                        </li>
+                    </ul>
+
+                    Technical Skills & Technologies: Python, C#, SQL, Qdrant, GCP, Azure, Keycloak,
+                    Ollama, Langchain, PyTorch, Docker, RabbitMQ
+                </div>
+            </div>
+            <!-- Job 2 -->
+            <div class="relative pl-8 border-l-4 border-blue-600">
+                <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-blue-600"></div>
+                <h3 class="text-xl font-semibold">Full Stack Developer @ Hyntelo</h3>
+                <p class="flex items-center text-sm text-gray-500 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 text-blue-600" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M8 7V3m8 4V3M4 11h16M5 5h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z"/>
+                    </svg>
+                    January 2022 – October 2024
+                </p>
+                <p class="flex items-center text-sm text-gray-500 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 text-blue-600" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M12 11c1.656 0 3-1.344 3-3S13.656 5 12 5s-3 1.344-3 3 1.344 3 3 3z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M12 22s8-4.5 8-11a8 8 0 10-16 0c0 6.5 8 11 8 11z"/>
+                    </svg>
+                    Pisa, Italy
+                </p>
+                <p class="mt-2 text-gray-700">Key Contributions:
+                    Developed and integrated Identity and Access Management (IAM), allowing the
+                    application to support multiple tenants and scale to new customers.
+                    Developed and integrated a content extraction module into the product
+                    pipeline, leveraging libraries and AI models to process textual, audio, and video
+                    files, expanding tagging capabilities across diverse formats.
+                    Developed a scalable RAG-based retrieval system, enabling in-depth
+                    document analysis and allowing users to extract key insights.
+                    Technical Skills & Technologies: Python, C#, Angular, Typescript, Redis, SQL,
+                    MongoDB, Qdrant, Neo4j, AWS, Azure, Runpod, Keycloak, Celery, LLamaindex,
+                    Whisper, FastAPI, Pydantic, Docker</p>
+            </div>
         </div>
-        <!-- Job 2 -->
-        <div class="relative pl-8 border-l-4 border-blue-600">
-          <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-blue-600"></div>
-          <h3 class="text-xl font-semibold">Full Stack Developer - Hyntelo</h3>
-          <span class="text-sm text-gray-500">January 2022 – October 2024</span>
-          <p class="mt-2 text-gray-700">Text.</p>
-        </div>
-      </div>
+    </section>
+
+    <!-- Badges & Certifications -->
+    <section id="certifications" class="py-12 max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold mb-8 border-b-2 border-gray-300 pb-2">Badges & Certifications</h2>
+
+        <ul class="space-y-6 relative border-l-2 border-blue-500 pl-6">
+
+            <!-- Item 1 -->
+            <li class="relative">
+                <div class="absolute -left-3 top-1 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs shadow">
+                    🎓
+                </div>
+                <div class="bg-white shadow-md rounded-r-lg pl-4 pr-6 py-4 border-l-4 border-blue-500">
+                    <h3 class="text-lg font-semibold">Python Associate Programmer</h3>
+                    <p class="text-sm text-gray-600">Python Institute · 2025</p>
+                </div>
+            </li>
+
+            <!-- Item 2 -->
+            <li class="relative">
+                <div class="absolute -left-3 top-1 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs shadow">
+                    ☁️
+                </div>
+                <div class="bg-white shadow-md rounded-r-lg pl-4 pr-6 py-4 border-l-4 border-green-500">
+                    <h3 class="text-lg font-semibold">MongoDB Associate Developer</h3>
+                    <p class="text-sm text-gray-600">MongoDB · 2025</p>
+                </div>
+            </li>
+
+            <!-- Item 3 -->
+            <li class="relative">
+                <div class="absolute -left-3 top-1 w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs shadow">
+                    🐳
+                </div>
+                <div class="bg-white shadow-md rounded-r-lg pl-4 pr-6 py-4 border-l-4 border-purple-500">
+                    <h3 class="text-lg font-semibold">AWS Cloud Practictioner</h3>
+                    <p class="text-sm text-gray-600">Amazon Web Services · 2023</p>
+                </div>
+            </li>
+
+            <!-- Item 3 -->
+            <li class="relative">
+                <div class="absolute -left-3 top-1 w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs shadow">
+                    🐳
+                </div>
+                <div class="bg-white shadow-md rounded-r-lg pl-4 pr-6 py-4 border-l-4 border-purple-500">
+                    <h3 class="text-lg font-semibold">First Certificate in English</h3>
+                    <p class="text-sm text-gray-600">Cambridge University · 2019</p>
+                </div>
+            </li>
+
+        </ul>
     </section>
 
     <!-- Projects -->
     <section id="projects" class="py-12 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold mb-4 border-b-2 border-gray-300 pb-2">Projects</h2>
-      <div class="grid md:grid-cols-2 gap-8 mt-6">
-        <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
-          <h3 class="text-xl font-semibold mb-2">Portfolio Website</h3>
-          <p class="text-gray-600">Text.</p>
+        <h2 class="text-2xl font-bold mb-4 border-b-2 border-gray-300 pb-2">Projects</h2>
+        <div class="grid md:grid-cols-2 gap-8 mt-6">
+            <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
+                <h3 class="text-xl font-semibold mb-2">Portfolio Website</h3>
+                <p class="text-gray-600">Text.</p>
+            </div>
+            <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
+                <h3 class="text-xl font-semibold mb-2">Task Manager App</h3>
+                <p class="text-gray-600">Text.</p>
+            </div>
         </div>
-        <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
-          <h3 class="text-xl font-semibold mb-2">Task Manager App</h3>
-          <p class="text-gray-600">Text.</p>
-        </div>
-      </div>
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="py-12 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold mb-4 border-b-2 border-gray-300 pb-2">Contact</h2>
-      <p class="text-gray-700 mb-4">Let’s connect! You can reach me through the platforms below:</p>
-      <p>Email: <a href="mailto:mirco.quintavalla@gmail.com" class="text-blue-600 hover:underline">mirco.quintavalla@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com" class="text-blue-600 hover:underline" target="_blank">linkedin.com/in/yourprofile</a></p>
+    <section id="contacts" class="py-12 max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold mb-4 border-b-2 border-gray-300 pb-2">Contact</h2>
+        <p class="text-gray-700 mb-4">Let’s connect! You can reach me through the platforms below:</p>
+
+        <p class="flex items-center space-x-2 mb-2">
+            <a href="mailto:mirco.quintavalla@gmail.com"
+               class="text-gray-700 hover:text-blue-600 flex items-center space-x-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
+                     stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0zm4 0a8 8 0 11-16 0 8 8 0 0116 0z"/>
+                </svg>
+                <span>Email</span>
+            </a>
+        </p>
+
+        <p class="flex items-center space-x-2 mb-2">
+            <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer"
+               class="text-gray-700 hover:text-blue-600 flex items-center space-x-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4v12h-4V8zm7 0h3.6v1.71h.05c.5-.95 1.73-1.95 3.55-1.95 3.8 0 4.5 2.5 4.5 5.75V20h-4v-6.75c0-1.6-.03-3.66-2.24-3.66-2.25 0-2.6 1.75-2.6 3.56V20h-4V8z"/>
+                </svg>
+                <span>LinkedIn</span>
+            </a>
+        </p>
+
+        <p class="flex items-center space-x-2 mb-2">
+            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer"
+               class="text-gray-700 hover:text-blue-600 flex items-center space-x-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path fill-rule="evenodd"
+                          d="M12 0C5.37 0 0 5.373 0 12a12 12 0 008.205 11.386c.6.11.82-.26.82-.577v-2.02c-3.338.726-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.09-.744.083-.729.083-.729 1.204.085 1.837 1.238 1.837 1.238 1.07 1.834 2.807 1.304 3.492.996.108-.774.42-1.305.76-1.604-2.665-.306-5.466-1.334-5.466-5.93 0-1.31.467-2.38 1.236-3.22-.124-.303-.535-1.523.117-3.176 0 0 1.008-.323 3.3 1.23a11.47 11.47 0 013.005-.404 11.47 11.47 0 013.005.404c2.29-1.553 3.296-1.23 3.296-1.23.654 1.653.243 2.873.12 3.176.77.84 1.234 1.91 1.234 3.22 0 4.61-2.804 5.62-5.475 5.92.43.37.823 1.102.823 2.222v3.293c0 .32.218.694.825.576A12.006 12.006 0 0024 12c0-6.627-5.373-12-12-12z"
+                          clip-rule="evenodd"/>
+                </svg>
+                <span>GitHub</span>
+            </a>
+        </p>
     </section>
 
     <!-- Footer -->
     <footer class="text-center text-sm text-gray-500 mt-12 pb-4">
-      &copy; 2025 Mirco Quintavalla. All rights reserved.
+        &copy; 2025 Mirco Quintavalla. All rights reserved.
     </footer>
-  </main>
+</main>
 
 </body>
 </html>
