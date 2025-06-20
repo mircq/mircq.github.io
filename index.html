@@ -5,12 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Mirco Quintavalla - Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wordcloud2.js/1.1.0/wordcloud2.min.js"></script>
-    <!--tag cloud-->
+    <script src="https://www.goat1000.com/tagcanvas.min.js"></script> <!--tag cloud-->
     <style>
         html {
           scroll-behavior: smooth;
         }
+
+        #tagCanvasContainer {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+        }
+
+          #tagCanvas {
+            width: 500px !important;
+            height: 500px !important;
+          }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800 font-sans flex flex-col md:flex-row min-h-screen">
@@ -22,11 +38,12 @@
     <h1 class="text-2xl font-bold mb-8">Mirco Quintavalla</h1>
     <nav class="space-y-4">
         <a href="#home" class="block text-gray-300 hover:text-white">Home</a>
-        <a href="#about" class="block text-gray-300 hover:text-white">About</a>
-        <a href="#education" class="block text-gray-300 hover:text-white">Education</a>
         <a href="#career" class="block text-gray-300 hover:text-white">Career</a>
+        <a href="#education" class="block text-gray-300 hover:text-white">Education</a>
+        <a href="#certifications" class="block text-gray-300 hover:text-white">Badges & Certifications</a>
         <a href="#projects" class="block text-gray-300 hover:text-white">Projects</a>
-        <a href="#contacts" class="block text-gray-300 hover:text-white">Contact</a>
+        <a href="#about" class="block text-gray-300 hover:text-white">About</a>
+        <a href="#contacts" class="block text-gray-300 hover:text-white">Contacts</a>
     </nav>
 </aside>
 
@@ -34,251 +51,35 @@
 <main class="flex-1 overflow-y-auto p-6">
 
     <!-- Home -->
-    <section id="home" class="min-h-screen flex flex-col justify-center items-center text-center px-4">
+    <section id="home" class="relative min-h-screen flex flex-col justify-center items-center text-center px-4">
+        <div id="tagCanvasContainer">
+            <canvas width="500" height="500" id="tagCanvas"></canvas>
+        </div>
+
+        <div id="tags" style="display: none;">
+            <ul>
+                <li><a href="#" rel=5>Python</a></li>
+                <li><a href="#" rel="1">React</a></li>
+                <li><a href="#" rel="1">Docker</a></li>
+                <li><a href="#" rel="1">SQL</a></li>
+                <li><a href="#" rel="1">AWS</a></li>
+                <li><a href="#" rel="1">TensorFlow</a></li>
+                <li><a href="#" rel="1">Git</a></li>
+                <li><a href="#" rel="1">Linux</a></li>
+                <li><a href="#" rel="1">Tailwind</a></li>
+                <li><a href="#" rel="1">JavaScript</a></li>
+                <li><a href="#" rel="1">Node.js</a></li>
+                <li><a href="#" rel="1">D3.js</a></li>
+                <li><a href="#" rel="1">Next.js</a></li>
+                <li><a href="#" rel="1">PostgreSQL</a></li>
+            </ul>
+        </div>
         <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">Hi, I'm Mirco Quintavalla</h2>
         <p class="text-lg md:text-xl text-gray-600 max-w-xl mb-6">Text.</p>
-        <a href="#projects"
+        <a href="#career"
            class="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-full shadow hover:bg-blue-700 transition duration-300">View
             My Work</a>
     </section>
-
-    <section class="py-12 max-w-4xl mx-auto">
-        <h2 class="text-2xl font-bold mb-4 border-b-2 border-gray-300 pb-2">Skills Word Cloud</h2>
-        <canvas id="skillsCloud" class="w-full h-96 rounded-lg shadow bg-gray-100"></canvas>
-    </section>
-
-    <script>
-        WordCloud(document.getElementById('skillsCloud'), {
-          list: [
-            ['Python', 50],
-            ['C#', 25],
-            ['SQL', 30],
-            ['Langchain', 20],
-            ['PyTorch', 35],
-            ['Docker', 20],
-            ['GCP', 28],
-            ['Azure', 26],
-            ['RabbitMQ', 18],
-            ['Qdrant', 22],
-            ['Keycloak', 15],
-            ['Ollama', 19],
-          ],
-          gridSize: 8,
-          weightFactor: 3,
-          fontFamily: 'sans-serif',
-          color: 'random-dark',
-          rotateRatio: 0.3,
-          backgroundColor: '#f3f4f6'
-        });
-    </script>
-
-    <!-- About -->
-    <section id="about" class="py-12 max-w-4xl mx-auto">
-        <h2 class="text-2xl font-bold mb-4 border-b-2 border-gray-300 pb-2">About Me</h2>
-        <p class="text-gray-700 leading-relaxed">
-            Text.
-        </p>
-    </section>
-
-    <!-- Education -->
-    <section id="education" class="py-12 max-w-4xl mx-auto">
-        <h2 class="text-2xl font-bold mb-4 border-b-2 border-gray-300 pb-2">Education</h2>
-        <div class="space-y-8 mt-6">
-            <div class="relative pl-8 border-l-4 border-green-500">
-                <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-green-500"></div>
-                <h3 class="text-xl font-semibold">Master Degree in Artificial Intelligence and Data Engineering @
-                    University of Pisa</h3>
-                <p class="flex items-center text-sm text-gray-500 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 text-green-600" fill="none"
-                         viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M8 7V3m8 4V3M4 11h16M5 5h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z"/>
-                    </svg>
-                    September 2019 – November 2021
-                </p>
-                <p class="flex items-center text-sm text-gray-500 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 text-green-600" fill="none"
-                         viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M12 11c1.656 0 3-1.344 3-3S13.656 5 12 5s-3 1.344-3 3 1.344 3 3 3z"/>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M12 22s8-4.5 8-11a8 8 0 10-16 0c0 6.5 8 11 8 11z"/>
-                    </svg>
-                    Pisa, Italy
-                </p>
-                <div class="flex items-center text-sm text-gray-600 mt-1">
-                    <svg class="w-4 h-4 mr-1 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                         viewBox="0 0 24 24">
-                        <path d="M12 2a7 7 0 017 7c0 2.93-1.87 5.43-4.5 6.32V22l-2.5-1.5L9 22v-6.68A7 7 0 015 9a7 7 0 017-7z"/>
-                    </svg>
-                    Final Grade: 110/110 cum laude
-                </div>
-                <!-- Thesis Link -->
-                <div class="mt-2">
-                    <a href="https://etd.adm.unipi.it/t/etd-10262021-144640/" target="_blank" rel="noopener noreferrer"
-                       class="inline-flex items-center px-3 py-1 text-sm font-medium text-green-700 bg-green-100 rounded-full hover:bg-green-200 transition">
-                        <svg class="w-4 h-4 mr-1 text-green-600" fill="none" stroke="currentColor" stroke-width="2"
-                             viewBox="0 0 24 24"
-                             xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M12 4v16m8-8H4"/>
-                        </svg>
-                        View Thesis
-                    </a>
-                </div>
-                <!-- Toggle button -->
-                <button id="toggleGradesBtn"
-                        class="mt-3 inline-flex items-center px-4 py-2 text-sm font-medium text-green-700 bg-green-100 rounded hover:bg-blue-200 transition focus:outline-none"
-                        aria-expanded="false"
-                        aria-controls="gradesTable">
-                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-                    </svg>
-                    Show Grades
-                </button>
-
-                <!-- Grades Table (hidden by default) -->
-                <div id="gradesTable" class="mt-4 overflow-x-auto max-h-64 transition-all duration-300 ease-in-out"
-                     style="max-height: 0; overflow: hidden;">
-                    <table class="min-w-full bg-white border border-gray-300 rounded shadow-sm">
-                        <thead>
-                        <tr class="bg-gray-100">
-                            <th class="text-left px-4 py-2 border-b">Course</th>
-                            <th class="text-left px-4 py-2 border-b">Grade</th>
-                            <th class="text-left px-4 py-2 border-b">Credits</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td class="px-4 py-2 border-b">Data Mining and Machine Learning</td>
-                            <td class="px-4 py-2 border-b">30/30</td>
-                            <td class="px-4 py-2 border-b">12</td>
-                        </tr>
-                        <tr class="bg-gray-50">
-                            <td class="px-4 py-2 border-b">Large-Scale and Multi-Structured Databases</td>
-                            <td class="px-4 py-2 border-b">30/30</td>
-                            <td class="px-4 py-2 border-b">9</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2 border-b">Statistics</td>
-                            <td class="px-4 py-2 border-b">30/30</td>
-                            <td class="px-4 py-2 border-b">9</td>
-                        </tr>
-                        <tr class="bg-gray-50">
-                            <td class="px-4 py-2 border-b">Optimization Methods and Game Theory</td>
-                            <td class="px-4 py-2 border-b">30/30</td>
-                            <td class="px-4 py-2 border-b">9</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2 border-b">Foundations of Cybersecurity</td>
-                            <td class="px-4 py-2 border-b">26/30</td>
-                            <td class="px-4 py-2 border-b">9</td>
-                        </tr>
-
-                         <tr class="bg-gray-50">
-                            <td class="px-4 py-2 border-b">Cloud Computing</td>
-                            <td class="px-4 py-2 border-b">29/30</td>
-                            <td class="px-4 py-2 border-b">9</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2 border-b">Business and Project Management</td>
-                            <td class="px-4 py-2 border-b">29/30</td>
-                            <td class="px-4 py-2 border-b">9</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2 border-b">Computational Intelligence and Deep Learning</td>
-                            <td class="px-4 py-2 border-b">28/30</td>
-                            <td class="px-4 py-2 border-b">9</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2 border-b">Internet of Things </td>
-                            <td class="px-4 py-2 border-b">27/30</td>
-                            <td class="px-4 py-2 border-b">9</td>
-                        </tr>
-                        <tr>
-                            <td class="px-4 py-2 border-b">Internet of Things </td>
-                            <td class="px-4 py-2 border-b">27/30</td>
-                            <td class="px-4 py-2 border-b">9</td>
-                        </tr>
-
-Multimedia Information Retrieval and Computer
-
-Vision
-
-30L
-Process Mining and Intelligence 30
-Symbolic and Evolutionary Artificial Intelligence 30
-                        </tbody>
-                    </table>
-                </div>
-                <p class="mt-2 text-gray-700">Text.</p>
-            </div>
-
-            <div class="relative pl-8 border-l-4 border-green-500">
-                <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-green-500"></div>
-                <h3 class="text-xl font-semibold">Bachelor Degree in Computer Engineering @ University of Pisa</h3>
-                <p class="flex items-center text-sm text-gray-500 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 text-green-600" fill="none"
-                         viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M8 7V3m8 4V3M4 11h16M5 5h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z"/>
-                    </svg>
-                    September 2015 – May 2019
-                </p>
-                <p class="flex items-center text-sm text-gray-500 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 text-green-600" fill="none"
-                         viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M12 11c1.656 0 3-1.344 3-3S13.656 5 12 5s-3 1.344-3 3 1.344 3 3 3z"/>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M12 22s8-4.5 8-11a8 8 0 10-16 0c0 6.5 8 11 8 11z"/>
-                    </svg>
-                    Pisa, Italy
-                </p>
-                <div class="flex items-center text-sm text-gray-600 mt-1">
-                    <svg class="w-4 h-4 mr-1 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                         viewBox="0 0 24 24">
-                        <path d="M12 2a7 7 0 017 7c0 2.93-1.87 5.43-4.5 6.32V22l-2.5-1.5L9 22v-6.68A7 7 0 015 9a7 7 0 017-7z"/>
-                    </svg>
-                    Final Grade: 106/110
-                </div>
-                <p class="mt-2 text-gray-700">Text.</p>
-            </div>
-
-            <!-- Degree 2 (optional) -->
-            <div class="relative pl-8 border-l-4 border-green-500">
-                <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-green-500"></div>
-                <h3 class="text-xl font-semibold">High School Diploma @ Scientific High School T. Parentucelli</h3>
-                <p class="flex items-center text-sm text-gray-500 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 text-green-600" fill="none"
-                         viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M8 7V3m8 4V3M4 11h16M5 5h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z"/>
-                    </svg>
-                    September 2010 – June 2015
-                </p>
-                <p class="flex items-center text-sm text-gray-500 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 text-green-600" fill="none"
-                         viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M12 11c1.656 0 3-1.344 3-3S13.656 5 12 5s-3 1.344-3 3 1.344 3 3 3z"/>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M12 22s8-4.5 8-11a8 8 0 10-16 0c0 6.5 8 11 8 11z"/>
-                    </svg>
-                    Sarzana, Italy
-                </p>
-                <div class="flex items-center text-sm text-gray-600 mt-1">
-                    <svg class="w-4 h-4 mr-1 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
-                         viewBox="0 0 24 24">
-                        <path d="M12 2a7 7 0 017 7c0 2.93-1.87 5.43-4.5 6.32V22l-2.5-1.5L9 22v-6.68A7 7 0 015 9a7 7 0 017-7z"/>
-                    </svg>
-                    Final Grade: 100/100
-                </div>
-                <p class="mt-2 text-gray-700">Text.</p>
-            </div>
-        </div>
-    </section>
-
 
     <!-- Career -->
     <section id="career" class="py-12 max-w-4xl mx-auto">
@@ -463,58 +264,416 @@ Symbolic and Evolutionary Artificial Intelligence 30
             </div>
     </section>
 
+    <!-- Education -->
+    <section id="education" class="py-12 max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold mb-4 border-b-2 border-gray-300 pb-2">Education</h2>
+        <div class="space-y-8 mt-6">
+            <div class="relative pl-8 border-l-4 border-green-500">
+                <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-green-500"></div>
+                <h3 class="text-xl font-semibold">Master Degree in Artificial Intelligence and Data Engineering @
+                    University of Pisa</h3>
+                <p class="flex items-center text-sm text-gray-500 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 text-green-600" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M8 7V3m8 4V3M4 11h16M5 5h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z"/>
+                    </svg>
+                    September 2019 – November 2021
+                </p>
+                <p class="flex items-center text-sm text-gray-500 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 text-green-600" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M12 11c1.656 0 3-1.344 3-3S13.656 5 12 5s-3 1.344-3 3 1.344 3 3 3z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M12 22s8-4.5 8-11a8 8 0 10-16 0c0 6.5 8 11 8 11z"/>
+                    </svg>
+                    Pisa, Italy
+                </p>
+                <div class="flex items-center text-sm text-gray-600 mt-1">
+                    <svg class="w-4 h-4 mr-1 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                         viewBox="0 0 24 24">
+                        <path d="M12 2a7 7 0 017 7c0 2.93-1.87 5.43-4.5 6.32V22l-2.5-1.5L9 22v-6.68A7 7 0 015 9a7 7 0 017-7z"/>
+                    </svg>
+                    Final Grade: 110/110 cum laude
+                </div>
+                <!-- Thesis Link -->
+                <div class="flex items-center text-sm text-gray-600 mt-1">
+                    <!-- Book Icon -->
+                    <svg class="w-4 h-4 mr-1 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                         viewBox="0 0 24 24">
+                        <path d="M4 19.5A2.5 2.5 0 016.5 17H20V6.5A2.5 2.5 0 0017.5 4H6.5A2.5 2.5 0 004 6.5v13zM6.5 19a.5.5 0 00-.5.5v.5h14v-1H6.5z"/>
+                    </svg>
+
+                    <!-- Thesis Title -->
+                    <span class="mr-2">
+    A novel explainable ensemble learning approach for motor imagery recognition via EEG
+  </span>
+
+                    <!-- View Thesis Button -->
+                    <a href="https://etd.adm.unipi.it/t/etd-10262021-144640/"
+                       target="_blank" rel="noopener noreferrer"
+                       class="inline-flex items-center px-2 py-0.5 text-xs font-medium text-green-700 bg-green-100 rounded-full hover:bg-green-200 transition">
+                        View Thesis
+                    </a>
+                </div>
+
+                <!-- Toggle button -->
+                <button id="toggleMasterGradesBtn"
+                        class="toggleGradesBtn mt-3 inline-flex items-center px-4 py-2 text-sm font-medium text-green-700 bg-green-100 rounded hover:bg-blue-200 transition focus:outline-none"
+                        aria-expanded="false"
+                        aria-controls="masterGradesTable">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                    Show Exams
+                </button>
+
+                <!-- Grades Table (hidden by default) -->
+                <div id="masterGradesTable"
+                     class="mt-4 overflow-x-auto max-h-64 transition-all duration-300 ease-in-out"
+                     style="max-height: 0; overflow: hidden;">
+                    <table class="min-w-full bg-white border border-gray-300 rounded shadow-sm">
+                        <thead>
+                        <tr class="bg-gray-100">
+                            <th class="text-left px-4 py-2 border-b">Course</th>
+                            <th class="text-left px-4 py-2 border-b">Grade</th>
+                            <th class="text-left px-4 py-2 border-b">Credits</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="px-4 py-2 border-b">Data Mining and Machine Learning</td>
+                            <td class="px-4 py-2 border-b">30/30</td>
+                            <td class="px-4 py-2 border-b">12</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-2 border-b">Large-Scale and Multi-Structured Databases</td>
+                            <td class="px-4 py-2 border-b">30/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border-b">Statistics</td>
+                            <td class="px-4 py-2 border-b">30/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-2 border-b">Optimization Methods and Game Theory</td>
+                            <td class="px-4 py-2 border-b">30/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border-b">Foundations of Cybersecurity</td>
+                            <td class="px-4 py-2 border-b">26/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-2 border-b">Cloud Computing</td>
+                            <td class="px-4 py-2 border-b">29/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border-b">Business and Project Management</td>
+                            <td class="px-4 py-2 border-b">29/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-2 border-b">Computational Intelligence and Deep Learning</td>
+                            <td class="px-4 py-2 border-b">28/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border-b">Internet of Things</td>
+                            <td class="px-4 py-2 border-b">27/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-2 border-b">Multimedia Information Retrieval and Computer Vision</td>
+                            <td class="px-4 py-2 border-b">30 cum laude/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border-b">Process Mining and Intelligence</td>
+                            <td class="px-4 py-2 border-b">30/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-2 border-b">Symbolic and Evolutionary Artificial Intelligence</td>
+                            <td class="px-4 py-2 border-b">30/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="mt-2 text-gray-700">Text.</p>
+            </div>
+
+            <div class="relative pl-8 border-l-4 border-green-500">
+                <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-green-500"></div>
+                <h3 class="text-xl font-semibold">Bachelor Degree in Computer Engineering @ University of Pisa</h3>
+                <p class="flex items-center text-sm text-gray-500 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 text-green-600" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M8 7V3m8 4V3M4 11h16M5 5h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z"/>
+                    </svg>
+                    September 2015 – May 2019
+                </p>
+                <p class="flex items-center text-sm text-gray-500 mt-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 text-green-600" fill="none"
+                         viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M12 11c1.656 0 3-1.344 3-3S13.656 5 12 5s-3 1.344-3 3 1.344 3 3 3z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                              d="M12 22s8-4.5 8-11a8 8 0 10-16 0c0 6.5 8 11 8 11z"/>
+                    </svg>
+                    Pisa, Italy
+                </p>
+                <div class="flex items-center text-sm text-gray-600 mt-1">
+                    <svg class="w-4 h-4 mr-1 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                         viewBox="0 0 24 24">
+                        <path d="M12 2a7 7 0 017 7c0 2.93-1.87 5.43-4.5 6.32V22l-2.5-1.5L9 22v-6.68A7 7 0 015 9a7 7 0 017-7z"/>
+                    </svg>
+                    Final Grade: 106/110
+                </div>
+                <!-- Toggle button -->
+                <button id="toggleBachelorGradesBtn"
+                        class="toggleGradesBtn mt-3 inline-flex items-center px-4 py-2 text-sm font-medium text-green-700 bg-green-100 rounded hover:bg-blue-200 transition focus:outline-none"
+                        aria-expanded="false"
+                        aria-controls="bachelorGradesTable">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                    Show Exams
+                </button>
+
+                <!-- Grades Table (hidden by default) -->
+                <div id="bachelorGradesTable"
+                     class="mt-4 overflow-x-auto max-h-64 transition-all duration-300 ease-in-out"
+                     style="max-height: 0; overflow: hidden;">
+                    <table class="min-w-full bg-white border border-gray-300 rounded shadow-sm">
+                        <thead>
+                        <tr class="bg-gray-100">
+                            <th class="text-left px-4 py-2 border-b">Course</th>
+                            <th class="text-left px-4 py-2 border-b">Grade</th>
+                            <th class="text-left px-4 py-2 border-b">Credits</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td class="px-4 py-2 border-b">Analisi Matematica I</td>
+                            <td class="px-4 py-2 border-b">24/30</td>
+                            <td class="px-4 py-2 border-b">12</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-2 border-b">Fondamenti di Informatica I</td>
+                            <td class="px-4 py-2 border-b">30/30</td>
+                            <td class="px-4 py-2 border-b">12</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border-b">Analisi Matematica II e Algebra Lineare</td>
+                            <td class="px-4 py-2 border-b">26/30</td>
+                            <td class="px-4 py-2 border-b">12</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-2 border-b">Fisica Generale</td>
+                            <td class="px-4 py-2 border-b">26/30</td>
+                            <td class="px-4 py-2 border-b">12</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border-b">Fondamenti di Informatica II</td>
+                            <td class="px-4 py-2 border-b">25/30</td>
+                            <td class="px-4 py-2 border-b">12</td>
+                        </tr>
+
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-2 border-b">Calcolo Numerico</td>
+                            <td class="px-4 py-2 border-b">25/30</td>
+                            <td class="px-4 py-2 border-b">6</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border-b">Elettrotecnica</td>
+                            <td class="px-4 py-2 border-b">30/30</td>
+                            <td class="px-4 py-2 border-b">6</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-2 border-b">Reti Logiche</td>
+                            <td class="px-4 py-2 border-b">25/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border-b">Progettazione Web</td>
+                            <td class="px-4 py-2 border-b">28/30</td>
+                            <td class="px-4 py-2 border-b">6</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-2 border-b">Calcolatori Elettronici</td>
+                            <td class="px-4 py-2 border-b">25/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border-b">Fondamenti di Automatica</td>
+                            <td class="px-4 py-2 border-b">24/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-2 border-b">Ricerca Operativa</td>
+                            <td class="px-4 py-2 border-b">27/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border-b">Economia ed Organizzazione Aziendale</td>
+                            <td class="px-4 py-2 border-b">27/30</td>
+                            <td class="px-4 py-2 border-b">6</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-2 border-b">Programmazione</td>
+                            <td class="px-4 py-2 border-b">30/30</td>
+                            <td class="px-4 py-2 border-b">6</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border-b">Ingegneria del Software</td>
+                            <td class="px-4 py-2 border-b">26/30</td>
+                            <td class="px-4 py-2 border-b">6</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-2 border-b">Sistemi Operativi</td>
+                            <td class="px-4 py-2 border-b">26/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border-b">Reti Informatiche</td>
+                            <td class="px-4 py-2 border-b">28/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-2 border-b">Crittografia</td>
+                            <td class="px-4 py-2 border-b">30/30</td>
+                            <td class="px-4 py-2 border-b">6</td>
+                        </tr>
+                        <tr>
+                            <td class="px-4 py-2 border-b">Comunicazioni Numeriche</td>
+                            <td class="px-4 py-2 border-b">23/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-4 py-2 border-b">Elettronica Digitale</td>
+                            <td class="px-4 py-2 border-b">24/30</td>
+                            <td class="px-4 py-2 border-b">9</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="mt-2 text-gray-700">Text.</p>
+            </div>
+        </div>
+
+        <!-- High School Diploma -->
+        <div class="relative pl-8 border-l-4 border-green-500">
+            <div class="absolute -left-3 top-1 w-6 h-6 rounded-full bg-green-500"></div>
+            <h3 class="text-xl font-semibold">High School Diploma @ Scientific High School T. Parentucelli</h3>
+            <p class="flex items-center text-sm text-gray-500 mt-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 text-green-600" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M8 7V3m8 4V3M4 11h16M5 5h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z"/>
+                </svg>
+                September 2010 – June 2015
+            </p>
+            <p class="flex items-center text-sm text-gray-500 mt-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1 text-green-600" fill="none"
+                     viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M12 11c1.656 0 3-1.344 3-3S13.656 5 12 5s-3 1.344-3 3 1.344 3 3 3z"/>
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M12 22s8-4.5 8-11a8 8 0 10-16 0c0 6.5 8 11 8 11z"/>
+                </svg>
+                Sarzana, Italy
+            </p>
+            <div class="flex items-center text-sm text-gray-600 mt-1">
+                <svg class="w-4 h-4 mr-1 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                     viewBox="0 0 24 24">
+                    <path d="M12 2a7 7 0 017 7c0 2.93-1.87 5.43-4.5 6.32V22l-2.5-1.5L9 22v-6.68A7 7 0 015 9a7 7 0 017-7z"/>
+                </svg>
+                Final Grade: 100/100
+            </div>
+            <p class="mt-2 text-gray-700">Text.</p>
+        </div>
+        </div>
+    </section>
+
     <!-- Badges & Certifications -->
     <section id="certifications" class="py-12 max-w-4xl mx-auto">
         <h2 class="text-2xl font-bold mb-8 border-b-2 border-gray-300 pb-2">Badges & Certifications</h2>
 
         <ul class="space-y-6 relative border-l-2 border-blue-500 pl-6">
 
-            <!-- Item 1 -->
+            <!-- Python -->
             <li class="relative">
-                <div class="absolute -left-3 top-1 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs shadow">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                        <!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                        <path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4 .1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8 .1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3 .1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/>
-                    </svg>
-                </div>
-                <div class="bg-white shadow-md rounded-r-lg pl-4 pr-6 py-4 border-l-4 border-blue-500">
-                    <h3 class="text-lg font-semibold">Python Associate Programmer</h3>
-                    <p class="text-sm text-gray-600">Python Institute · 2025</p>
-                </div>
+                <a href="https://your-python-certification-link.com" target="_blank" rel="noopener noreferrer"
+                   class="block group">
+                    <div class="absolute -left-3 top-1 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs shadow transition-transform group-hover:scale-105">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 448 512"
+                             fill="currentColor">
+                            <path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4 .1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8 .1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3 .1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/>
+                        </svg>
+                    </div>
+                    <div class="bg-white shadow-md rounded-r-lg pl-4 pr-6 py-4 border-l-4 border-blue-500 group-hover:bg-blue-50 transition">
+                        <h3 class="text-lg font-semibold group-hover:text-blue-700">Python Associate Programmer</h3>
+                        <p class="text-sm text-gray-600">Python Institute · 2025</p>
+                    </div>
+                </a>
             </li>
 
-            <!-- Item 2 -->
+
+            <!-- MongoDB-->
             <li class="relative">
-                <div class="absolute -left-3 top-1 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs shadow">
-                    ☁️
-                </div>
-                <div class="bg-white shadow-md rounded-r-lg pl-4 pr-6 py-4 border-l-4 border-green-500">
-                    <h3 class="text-lg font-semibold">MongoDB Associate Developer</h3>
-                    <p class="text-sm text-gray-600">MongoDB · 2025</p>
-                </div>
+                <a href="https://your-link-here.com" target="_blank" rel="noopener noreferrer" class="block group">
+                    <div class="absolute -left-3 top-1 w-6 h-6 bg-green-500 rounded-full flex items-center justify-center text-white text-xs shadow transition-transform group-hover:scale-105">
+                        ☁️
+                    </div>
+                    <div class="bg-white shadow-md rounded-r-lg pl-4 pr-6 py-4 border-l-4 border-green-500 group-hover:bg-green-50 transition">
+                        <h3 class="text-lg font-semibold group-hover:text-green-700">MongoDB Associate Developer</h3>
+                        <p class="text-sm text-gray-600">MongoDB · 2025</p>
+                    </div>
+                </a>
             </li>
 
-            <!-- Item 3 -->
+
+            <!-- AWS -->
             <li class="relative">
-                <div class="absolute -left-3 top-1 w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs shadow">
-                    🐳
-                </div>
-                <div class="bg-white shadow-md rounded-r-lg pl-4 pr-6 py-4 border-l-4 border-purple-500">
-                    <h3 class="text-lg font-semibold">AWS Cloud Practictioner</h3>
-                    <p class="text-sm text-gray-600">Amazon Web Services · 2023</p>
-                </div>
+                <a href="https://your-aws-certificate-link.com" target="_blank" rel="noopener noreferrer"
+                   class="block group">
+                    <div class="absolute -left-3 top-1 w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs shadow transition-transform group-hover:scale-105">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" class="w-4 h-4"
+                             fill="currentColor">
+                            <!-- Simple AWS-style smile icon (like the Amazon "smile" from AWS logo) -->
+                            <path d="M153 339c-16 0-31-4-45-10l-8-4 4 9c12 26 30 45 54 57 20 10 42 15 63 15 22 0 44-5 64-16 28-15 48-37 61-67 6-14 10-28 13-42l2-9-8 4c-26 14-55 21-83 21-36 0-71-11-104-32-17-11-33-23-48-37l-7-6-6 7c-13 15-25 32-34 49-9 18-14 37-14 57 0 42 16 79 48 108 29 27 66 42 104 42 38 0 75-15 104-42 31-29 47-66 47-108 0-20-5-40-14-58-8-17-19-33-32-48l-7-7-7 6c-16 14-33 27-50 38-33 21-68 32-104 32z"/>
+                        </svg>
+                    </div>
+                    <div class="bg-white shadow-md rounded-r-lg pl-4 pr-6 py-4 border-l-4 border-purple-500 group-hover:bg-purple-50 transition">
+                        <h3 class="text-lg font-semibold group-hover:text-purple-700">AWS Cloud Practitioner</h3>
+                        <p class="text-sm text-gray-600">Amazon Web Services · 2023</p>
+                    </div>
+                </a>
             </li>
 
-            <!-- Item 3 -->
+
+            <!-- First Certificate -->
             <li class="relative">
-                <div class="absolute -left-3 top-1 w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs shadow">
-                    🐳
-                </div>
-                <div class="bg-white shadow-md rounded-r-lg pl-4 pr-6 py-4 border-l-4 border-purple-500">
-                    <h3 class="text-lg font-semibold">First Certificate in English</h3>
-                    <p class="text-sm text-gray-600">Cambridge University · 2019</p>
-                </div>
+                <a href="https://your-certificate-link.com" target="_blank" rel="noopener noreferrer"
+                   class="block group">
+                    <div class="absolute -left-3 top-1 w-6 h-6 bg-yellow-500 rounded-full flex items-center justify-center text-white text-xs shadow transition-transform group-hover:scale-105">
+                        🇬🇧
+                    </div>
+                    <div class="bg-white shadow-md rounded-r-lg pl-4 pr-6 py-4 border-l-4 border-yellow-500 group-hover:bg-yellow-50 transition">
+                        <h3 class="text-lg font-semibold group-hover:text-yellow-700">First Certificate in English</h3>
+                        <p class="text-sm text-gray-600">Cambridge University · 2019</p>
+                    </div>
+                </a>
             </li>
+
 
         </ul>
     </section>
@@ -523,94 +682,154 @@ Symbolic and Evolutionary Artificial Intelligence 30
     <section id="projects" class="py-12 max-w-4xl mx-auto">
         <h2 class="text-2xl font-bold mb-4 border-b-2 border-gray-300 pb-2">Projects</h2>
         <div class="grid md:grid-cols-2 gap-8 mt-6">
-            <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
-                <h3 class="text-xl font-semibold mb-2">Portfolio Website</h3>
-                <p class="text-gray-600">Text.</p>
-            </div>
-            <div class="bg-white rounded-lg shadow p-6 hover:shadow-lg transition">
-                <h3 class="text-xl font-semibold mb-2">Task Manager App</h3>
-                <p class="text-gray-600">Text.</p>
-            </div>
+
+            <!-- Dotnet API Template -->
+            <a href="https://github.com/mircq/dotnet-api-template" target="_blank" rel="noopener noreferrer"
+               class="block bg-white rounded-lg shadow p-6 hover:shadow-lg transition group">
+                <h3 class="text-xl font-semibold mb-2 group-hover:text-blue-600">.NET API Template</h3>
+                <p class="text-gray-600">A clean architecture template for API microservices in .NET.</p>
+            </a>
+
+            <!-- Python API Template -->
+            <a href="https://github.com/mircq/python-api-template" target="_blank" rel="noopener noreferrer"
+               class="block bg-white rounded-lg shadow p-6 hover:shadow-lg transition group">
+                <h3 class="text-xl font-semibold mb-2 group-hover:text-blue-600">Python API Template</h3>
+                <p class="text-gray-600">A clean architecture template for API microservices in Python.</p>
+            </a>
+
+            <!-- Python Worker Template -->
+            <a href="https://github.com/mircq/python-worker-template" target="_blank" rel="noopener noreferrer"
+               class="block bg-white rounded-lg shadow p-6 hover:shadow-lg transition group">
+                <h3 class="text-xl font-semibold mb-2 group-hover:text-blue-600">Python Worker Template</h3>
+                <p class="text-gray-600">A template for a Python service that consumes tasks from a queue.</p>
+            </a>
+
         </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contacts" class="py-12 max-w-4xl mx-auto">
-        <h2 class="text-2xl font-bold mb-4 border-b-2 border-gray-300 pb-2">Contact</h2>
-        <p class="text-gray-700 mb-4">Let’s connect! You can reach me through the platforms below:</p>
-
-        <p class="flex items-center space-x-2 mb-2">
-            <a href="mailto:mirco.quintavalla@gmail.com"
-               class="text-gray-700 hover:text-blue-600 flex items-center space-x-1">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
-                     stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0zm4 0a8 8 0 11-16 0 8 8 0 0116 0z"/>
-                </svg>
-                <span>Email</span>
-            </a>
-        </p>
-
-        <p class="flex items-center space-x-2 mb-2">
-            <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer"
-               class="text-gray-700 hover:text-blue-600 flex items-center space-x-1">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4v12h-4V8zm7 0h3.6v1.71h.05c.5-.95 1.73-1.95 3.55-1.95 3.8 0 4.5 2.5 4.5 5.75V20h-4v-6.75c0-1.6-.03-3.66-2.24-3.66-2.25 0-2.6 1.75-2.6 3.56V20h-4V8z"/>
-                </svg>
-                <span>LinkedIn</span>
-            </a>
-        </p>
-
-        <p class="flex items-center space-x-2 mb-2">
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer"
-               class="text-gray-700 hover:text-blue-600 flex items-center space-x-1">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                    <path fill-rule="evenodd"
-                          d="M12 0C5.37 0 0 5.373 0 12a12 12 0 008.205 11.386c.6.11.82-.26.82-.577v-2.02c-3.338.726-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.09-.744.083-.729.083-.729 1.204.085 1.837 1.238 1.837 1.238 1.07 1.834 2.807 1.304 3.492.996.108-.774.42-1.305.76-1.604-2.665-.306-5.466-1.334-5.466-5.93 0-1.31.467-2.38 1.236-3.22-.124-.303-.535-1.523.117-3.176 0 0 1.008-.323 3.3 1.23a11.47 11.47 0 013.005-.404 11.47 11.47 0 013.005.404c2.29-1.553 3.296-1.23 3.296-1.23.654 1.653.243 2.873.12 3.176.77.84 1.234 1.91 1.234 3.22 0 4.61-2.804 5.62-5.475 5.92.43.37.823 1.102.823 2.222v3.293c0 .32.218.694.825.576A12.006 12.006 0 0024 12c0-6.627-5.373-12-12-12z"
-                          clip-rule="evenodd"/>
-                </svg>
-                <span>GitHub</span>
-            </a>
+    <!-- About -->
+    <section id="about" class="py-12 max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold mb-4 border-b-2 border-gray-300 pb-2">About Me</h2>
+        <p class="text-gray-700 leading-relaxed">
+            Text.
         </p>
     </section>
+
+    <!-- Contacts -->
+    <section id="contacts" class="py-12 max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold mb-4 border-b-2 border-gray-300 pb-2">Contacts</h2>
+        <p class="text-gray-700 mb-4">Let’s connect! You can reach me through the platforms below:</p>
+
+        <div class="space-y-4 mt-6">
+            <!-- Contact Row -->
+            <div class="flex items-center space-x-3 text-gray-700">
+                <div class="text-blue-600">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M16 12H8m8 0a4 4 0 11-8 0 4 4 0 018 0zm4 0a8 8 0 11-16 0 8 8 0 0116 0z"/>
+                    </svg>
+                </div>
+                <a href="mailto:mirco.quintavalla@gmail.com"
+                   class="hover:underline text-sm">mirco.quintavalla@gmail.com</a>
+            </div>
+
+            <div class="flex items-center space-x-3 text-gray-700">
+                <div class="text-blue-600">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4v12h-4V8zm7 0h3.6v1.71h.05c.5-.95 1.73-1.95 3.55-1.95 3.8 0 4.5 2.5 4.5 5.75V20h-4v-6.75c0-1.6-.03-3.66-2.24-3.66-2.25 0-2.6 1.75-2.6 3.56V20h-4V8z"/>
+                    </svg>
+                </div>
+                <a href="https://linkedin.com/in/mirco-quintavalla-005466195" target="_blank"
+                   class="hover:underline text-sm">Mirco Quintavalla</a>
+            </div>
+
+            <div class="flex items-center space-x-3 text-gray-700">
+                <div class="text-blue-600">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd"
+                              d="M12 0C5.37 0 0 5.373 0 12a12 12 0 008.205 11.386c.6.11.82-.26.82-.577v-2.02c-3.338.726-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.09-.744.083-.729.083-.729 1.204.085 1.837 1.238 1.837 1.238 1.07 1.834 2.807 1.304 3.492.996.108-.774.42-1.305.76-1.604-2.665-.306-5.466-1.334-5.466-5.93 0-1.31.467-2.38 1.236-3.22-.124-.303-.535-1.523.117-3.176 0 0 1.008-.323 3.3 1.23a11.47 11.47 0 013.005-.404 11.47 11.47 0 013.005.404c2.29-1.553 3.296-1.23 3.296-1.23.654 1.653.243 2.873.12 3.176.77.84 1.234 1.91 1.234 3.22 0 4.61-2.804 5.62-5.475 5.92.43.37.823 1.102.823 2.222v3.293c0 .32.218.694.825.576A12.006 12.006 0 0024 12c0-6.627-5.373-12-12-12z"
+                              clip-rule="evenodd"/>
+                    </svg>
+                </div>
+                <a href="https://github.com/mircq" target="_blank" class="hover:underline text-sm">mircq</a>
+            </div>
+        </div>
+
+        <!-- Download CV Button -->
+        <div class="mt-8">
+            <a href="/path-to-your-cv.pdf" download
+               class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3"/>
+                </svg>
+                Download CV
+            </a>
+        </div>
+    </section>
+
 
     <!-- Footer -->
     <footer class="text-center text-sm text-gray-500 mt-12 pb-4">
         &copy; 2025 Mirco Quintavalla. All rights reserved.
     </footer>
 </main>
+<!-- Your script here -->
+<script>
+    document.querySelectorAll('.toggleGradesBtn').forEach(button => {
+      button.addEventListener('click', () => {
+        const gradesDiv = button.nextElementSibling;
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
 
+        if (isExpanded) {
+          gradesDiv.style.maxHeight = '0';
+          gradesDiv.style.overflow = 'hidden';
+          button.setAttribute('aria-expanded', 'false');
+          button.innerHTML = `
+            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg> Show Exams
+          `;
+        } else {
+          gradesDiv.style.maxHeight = gradesDiv.scrollHeight + 'px';
+          gradesDiv.style.overflow = 'auto';
+          button.setAttribute('aria-expanded', 'true');
+          button.innerHTML = `
+            <svg class="w-4 h-4 mr-2 transform rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg> Hide Exams
+          `;
+        }
+      });
+    });
+
+    window.onload = function () {
+    try {
+      TagCanvas.Start('tagCanvas', 'tags', {
+        textColour: '#1e40af',
+        outlineColour: '#60a5fa',
+        reverse: true,
+        depth: 0.9,
+        maxSpeed: 0.05,
+        wheelZoom: false,
+        noSelect: true,
+        initial: [0.07, -0.07],
+        freezeActive: true,
+        shuffleTags: true,
+        weight: true, // Important: enables font size variation
+        weightMode: "size", // size and color
+        weightSize: 200,
+        weightGradient: {
+          0: "#1d4ed8",
+          0.5: "#2563eb",
+          1: "#3b82f6"
+        }
+      });
+    } catch (e) {
+      console.log("TagCanvas error:", e);
+      document.getElementById("tagCanvasContainer").style.display = 'none';
+    }
+  };
+</script>
 </body>
 </html>
-
-<script>
-    const toggleBtn = document.getElementById('toggleGradesBtn');
-    const gradesDiv = document.getElementById('gradesTable');
-    const svgIcon = toggleBtn.querySelector('svg');
-
-    toggleBtn.addEventListener('click', () => {
-      const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-
-      if (isExpanded) {
-        // Hide the table
-        gradesDiv.style.maxHeight = '0';
-        gradesDiv.style.overflow = 'hidden';
-        toggleBtn.setAttribute('aria-expanded', 'false');
-        toggleBtn.innerHTML = `
-          <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-          </svg> Show Grades
-        `;
-      } else {
-        // Show the table with smooth height expansion
-        gradesDiv.style.maxHeight = gradesDiv.scrollHeight + 'px';
-        gradesDiv.style.overflow = 'auto';
-        toggleBtn.setAttribute('aria-expanded', 'true');
-        toggleBtn.innerHTML = `
-          <svg class="w-4 h-4 mr-2 transform rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-          </svg> Hide Grades
-        `;
-      }
-    });
-</script>
